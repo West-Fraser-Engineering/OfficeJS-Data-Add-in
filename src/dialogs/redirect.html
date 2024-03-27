@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <script>
+        // Function to get the value of a query parameter from the URL
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Function to handle the redirection
+        function redirectToTarget() {
+            // Get the value of the TARGET parameter from the query string
+            const target = getQueryParam('TARGET');
+
+            // Check if TARGET is specified
+            if (target) {
+                // Redirect to the specified target
+                window.location.href = target;
+            } else {
+                // Display an error message on the screen
+                const errorMessage = document.createElement('p');
+                errorMessage.textContent = 'Error: Redirect target not specified. Please add TARGET as a query parameter.';
+                document.body.appendChild(errorMessage);
+            }
+        }
+
+        // Call the function when the page loads
+        redirectToTarget();
+    </script>
+</body>
+</html>

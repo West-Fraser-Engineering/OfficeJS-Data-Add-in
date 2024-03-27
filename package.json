@@ -1,0 +1,37 @@
+{
+    "name": "excel-officejs",
+    "version": "2.0.0",
+    "description": "--- page_type: sample urlFragment: excel-add-in-hello-world products:   - office-add-ins   - office-excel   - office   - office-365 languages:   - javascript extensions:   contentType: samples   technologies:     - Add-ins   createdDate: '10/11/2021 10:00:00 AM' description: 'Create a simple Excel add-in that displays hello world.' ---",
+    "private": true,
+    "scripts": {
+        "start": " http-server -S -C C:\\Users\\herec\\.office-addin-dev-certs\\localhost.crt -K C:\\Users\\herec\\.office-addin-dev-certs\\localhost.key --cors . -p 8081",
+        "build": "webpack",
+        "build:watch": "webpack --watch",
+        "test": "mocha test-build"
+    },
+    "keywords": [],
+    "author": "Dylan Vause <herecomesdylan@yahoo.com> (https://dylanvause.com/)",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/office-js": "^1.0.362",
+        "copy-webpack-plugin": "^11.0.0",
+        "css-loader": "^6.8.1",
+        "html-bundler-webpack-plugin": "^3.6.5",
+        "html-loader": "^4.2.0",
+        "html-webpack-plugin": "^5.5.4",
+        "style-loader": "^3.3.3",
+        "ts-loader": "^9.5.1",
+        "webpack": "^5.89.0",
+        "webpack-cli": "^5.1.4"
+    },
+    "dependencies": {
+        "@types/mocha": "^10.0.6",
+        "browserify-fs": "^1.0.0",
+        "crypto-browserify": "^3.12.0",
+        "custom-functions-metadata-plugin": "^1.5.3",
+        "marked": "^12.0.1",
+        "mocha": "^10.2.0",
+        "sql.js": "^1.10.2",
+        "stream-browserify": "^3.0.0"
+    }
+}

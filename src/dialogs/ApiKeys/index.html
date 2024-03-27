@@ -1,0 +1,54 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>API Keys Required</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+    <script src="index.ts"></script>
+
+    <style>
+        html {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        body>* {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Upload API Keys</h1>
+    <p>This addin requires API keys to access cloud-based services.  Please upload your API keys file.</p>
+    <input id="api-key-file-upload" type="file" accept=".key">
+    <b id="file-status"></b>
+    <button id="close-button">Close</button>
+</body>
+
+<!-- <script>
+    Office.onReady((info) => {
+        // Check that we loaded into Excel
+        if (info.host === Office.HostType.Excel) {
+
+        }
+    });
+
+    /**@type {HTMLInputElement | null} */
+    const openai_api_key = document.getElementById('openai-api-key');
+    openai_api_key.addEventListener('change', () => {
+        localStorage.setItem('openai-api-key', openai_api_key.value);
+    });
+    openai_api_key.value = localStorage.getItem('openai-api-key') ?? '';
+</script> -->
+
+</html>

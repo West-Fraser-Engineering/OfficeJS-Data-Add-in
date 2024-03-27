@@ -1,0 +1,115 @@
+const path = require('path');
+const CustomFunctionsMetadataPlugin = require('custom-functions-metadata-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+module.exports = [
+    {
+        mode: 'production',
+        optimization: {
+            minimize: false
+        },
+        entry: {
+            functions: './src/functions/functions',
+            // taskpane: ['./src/taskpane/taskpane.html'],
+            chatbot: './src/chatbot',
+        },
+        output: {
+            path: path.resolve(__dirname, 'build'),
+            filename: '[name].js',
+            clean: true
+        },
+        resolve: {
+            alias: {
+                '@src': path.resolve(__dirname, 'src'), // Add this alias
+            },
+            extensions: ['.js', '.ts', '.tsx'],
+            symlinks: false,
+            fallback: {
+                fs: require.resolve("browserify-fs"), // or 'empty' if you prefer an empty module
+                crypto: require.resolve('crypto-browserify'),
+                stream: require.resolve('stream-browserify'),
+            }
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.ts$/,
+                    exclude: /node_modules/,
+                    include: path.resolve(__dirname, 'src'),
+                    use: 'ts-loader',
+                },
+                {
+                    test: /\.tsx$/,
+                    exclude: /node_modules/,
+                    include: path.resolve(__dirname, 'src'),
+                    use: 'ts-loader',
+                },
+                {
+                    test: /\.css$/,
+                    include: path.resolve(__dirname, 'src'),
+                    use: ['style-loader', 'css-loader'],
+                },
+                {
+                    test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                    type: 'asset/resource'
+                },
+                {
+                    test: /\.wasm$/,
+                    type: 'javascript/auto',
+                },
+                // {
+                //     test: /\.html$/,
+                //     include: path.resolve(__dirname, 'src'),
+                //     loader: 'html-loader',
+                // },
+            ],
+        },
+        externals: {
+            office: "office-js"
+        },
+        node: false,
+        plugins: [
+            new CopyWebpackPlugin({
+                patterns: [
+                    { from: '**/*.html', to: '', context: 'src/' },
+                    { from: '**/*.css', to: '', context: 'src/' },
+                ]
+            }),
+            new CustomFunctionsMetadataPlugin({
+                output: 'functions.json',
+                input: './src/functions/functions.ts'
+            })
+        ],
+    },
+    {
+        name: 'test',
+        mode: 'development',
+        entry: {
+            tests: './test/index.test.ts'
+        },
+        resolve: {
+            alias: {
+                '@src': path.resolve(__dirname, 'src'),
+            },
+            extensions: ['.js', '.ts', '.tsx'],
+            symlinks: false,
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.tsx?$/,
+                    use: 'ts-loader',
+                    exclude: /node_modules/,
+                },
+            ],
+        },
+        output: {
+            path: path.resolve(__dirname, 'test-build'),
+            filename: 'tests.js',
+        },
+        node: false,
+        externals: {
+            office: "office-js"
+        },
+    }
+];

@@ -1,0 +1,154 @@
+{
+    "functions": [
+        {
+            "description": "Executes SQL on the table provided in the SQL statement.",
+            "id": "QUERYTABLE",
+            "name": "QUERYTABLE",
+            "parameters": [
+                {
+                    "name": "tableName",
+                    "type": "string"
+                },
+                {
+                    "name": "query",
+                    "type": "string"
+                }
+            ],
+            "result": {
+                "dimensionality": "matrix"
+            }
+        },
+        {
+            "description": "Executes SQL on the table provided in the SQL statement.",
+            "id": "SQL",
+            "name": "SQL",
+            "parameters": [
+                {
+                    "description": "The SQL statement to execute.",
+                    "name": "statement",
+                    "type": "string"
+                }
+            ],
+            "result": {
+                "dimensionality": "matrix"
+            }
+        },
+        {
+            "description": "Builds an Excel formula from a natural-language prompt.  Copy and paste the result as\nvalues to apply the formula.",
+            "id": "MAKEFORMULA",
+            "name": "MAKEFORMULA",
+            "parameters": [
+                {
+                    "description": "A natural-language description of the formula.",
+                    "name": "description",
+                    "type": "string"
+                }
+            ],
+            "result": {
+                "type": "string"
+            }
+        },
+        {
+            "description": "Asks the question of ChatGPT",
+            "id": "ASK",
+            "name": "ASK",
+            "parameters": [
+                {
+                    "description": "A natural-language description of the formula.",
+                    "dimensionality": "matrix",
+                    "name": "promptPart",
+                    "repeating": true,
+                    "type": "string"
+                }
+            ],
+            "result": {
+                "type": "string"
+            }
+        },
+        {
+            "id": "GETRANGEVALUE",
+            "name": "GETRANGEVALUE",
+            "parameters": [
+                {
+                    "name": "address",
+                    "type": "string"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Take a number as the input value and return a formatted number value as the output.",
+            "id": "DEBUG_CREATEFORMATTEDNUMBER",
+            "name": "DEBUG_CREATEFORMATTEDNUMBER",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "number"
+                },
+                {
+                    "description": "(e.g. \"0.00%\")",
+                    "name": "format",
+                    "type": "string"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Returns a promise that takes `duration` seconds to resolve.",
+            "id": "DEBUG_LONGPROMISERETURN",
+            "name": "DEBUG_LONGPROMISERETURN",
+            "parameters": [
+                {
+                    "name": "duration",
+                    "type": "number"
+                }
+            ],
+            "result": {
+                "type": "string"
+            }
+        },
+        {
+            "description": "Logs its input to the dev console.",
+            "id": "DEBUG_LOGINPUT",
+            "name": "DEBUG_LOGINPUT",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Opens a dialog box",
+            "id": "DEBUG_OPENDIALOG",
+            "name": "DEBUG_OPENDIALOG",
+            "parameters": [],
+            "result": {}
+        },
+        {
+            "description": "Shows an alert",
+            "id": "DEBUG_SHOWALERT",
+            "name": "DEBUG_SHOWALERT",
+            "parameters": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Shows/hides the task pane",
+            "id": "DEBUG_SETTASKPANEVISIBILITY",
+            "name": "DEBUG_SETTASKPANEVISIBILITY",
+            "parameters": [
+                {
+                    "name": "visible",
+                    "type": "boolean"
+                }
+            ],
+            "result": {}
+        }
+    ]
+}

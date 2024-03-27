@@ -3,7 +3,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
-  <Id>775091b3-e24a-4cf4-a65b-26976fda4f3c</Id>
+  <Id>775091b3-e24a-4cf4-a65b-26976fda4f3d</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>West Fraser</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
@@ -13,7 +13,7 @@
   <HighResolutionIconUrl DefaultValue="https://west-fraser-engineering.github.io/OfficeJS-Data-Add-in/assets/icon-64.png"/>
   <!-- <SupportUrl DefaultValue="https://learn.microsoft.com/office/dev/add-ins/overview/office-add-in-code-samples"/> -->
   <AppDomains>
-    <AppDomain>https://west-fraser-engineering.github.io</AppDomain>
+    <AppDomain>https://west-fraser-engineering.github.io/OfficeJS-Data-Add-in</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Workbook"/>

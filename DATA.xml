@@ -11,7 +11,7 @@
   <Description DefaultValue="Data analytics tools for the Energy Team."/>
   <IconUrl DefaultValue="https://west-fraser-engineering.github.io/OfficeJS-Data-Add-in/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://west-fraser-engineering.github.io/OfficeJS-Data-Add-in/assets/icon-64.png"/>
-  <!-- <SupportUrl DefaultValue="https://learn.microsoft.com/office/dev/add-ins/overview/office-add-in-code-samples"/> -->
+  <SupportUrl DefaultValue="https://github.com/West-Fraser-Engineering/OfficeJS-Data-Add-in"/>
   <AppDomains>
     <AppDomain>https://west-fraser-engineering.github.io/OfficeJS-Data-Add-in</AppDomain>
   </AppDomains>
@@ -100,7 +100,7 @@
         <bt:Url id="Functions.Metadata.Url" DefaultValue="https://west-fraser-engineering.github.io/OfficeJS-Data-Add-in/build/functions.json"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="Functions.Namespace" DefaultValue=""/>
+        <bt:String id="Functions.Namespace" DefaultValue="DATA"/>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with the Data Analytics add-in!"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Data Analytics Add-in"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Data Analytics Add-in"/>

@@ -303,8 +303,8 @@ async function generateSqlQueryFromNaturalLanguage(targetTableName, query) {
                 }
             }
             system_prompt += '.  Provide an SQL statement appropriate for the user\'s \
-            query.  Return SQL only, and nothing else.  If you cannot interpret a \
-            user\'s request, return "ERROR: {description}".';
+            query.  Return SQL only, and nothing else.  Use plaintext only, not markup.  \
+             If you cannot interpret a user\'s request, return "ERROR: {description}".';
             const response = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {

@@ -34,10 +34,14 @@ async function getApiKey(key) {
         }
     }
 }
+function getRelativeUrlPath() {
+    const index = location.pathname.indexOf('/build');
+    return location.pathname.slice(0, index);
+}
 function showImportApiKeysDialog() {
     return new Promise((res, rej) => {
         try {
-            Office.context.ui.displayDialogAsync(`${location.origin}/build/dialogs/ApiKeys/index.html`, {
+            Office.context.ui.displayDialogAsync(`${location.origin + getRelativeUrlPath()}/build/dialogs/ApiKeys/index.html`, {
                 displayInIframe: true,
                 width: 50,
                 height: 50,
@@ -84,14 +88,23 @@ function addApiKeys(keys) {
     localStorage.setItem('api-keys', JSON.stringify(existingKeys));
 }
 const requiredKeys = (/* unused pure expression or super */ null && (["OPENAI_API_KEY"]));
-async function parseKeyFile(data) {
+function parseKeyFile(data) {
     const lines = data.split('\n')
         .map(line => line.trim())
-        .filter(line => !line.startsWith('#'));
+        .filter(line => !line.startsWith('#')) // remove comments
+        .filter(line => line.trim().length > 0); // remove empty lines
     const variables = {};
-    for (const line of lines) {
-        const [key, value] = line.split('=', 2);
-        variables[key] = value;
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        const splitIndex = line.indexOf('=');
+        if (splitIndex >= 0) {
+            const key = line.slice(0, splitIndex).trim();
+            const value = line.slice(splitIndex + 1).trim();
+            variables[key] = value;
+        }
+        else {
+            throw new Error(`SyntaxError: Expected '=' on line ${i}.`);
+        }
     }
     return variables;
 }
